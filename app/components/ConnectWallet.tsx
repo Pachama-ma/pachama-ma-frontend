@@ -3,9 +3,8 @@
 import { useEffect, useState } from 'react';
 
 import ConnectButton from './ConnectButton';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import PersonIcon from '@mui/icons-material/Person';
 import { useAccount } from 'wagmi';
 
 type LocalState = {
@@ -28,13 +27,10 @@ export default function ConnectWallet() {
   }, [isConnected, address]);
 
   return (
-    <div className='flex gap-[12px]'>
+    <div>
       {localState.isConnected && (
-        <Link
-          href={`/user/${localState.address}`}
-          className={`px-3 py-2 transition-all bg-white rounded-xl shadow-theme-shadow-1 hover:scale-105 text-theme-1`}
-        >
-          <FontAwesomeIcon icon={faUser} className='w-4 h-4' />
+        <Link href={`/user/${localState.address}`}>
+          <PersonIcon />
         </Link>
       )}
       <ConnectButton />

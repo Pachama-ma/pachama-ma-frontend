@@ -1,13 +1,13 @@
 import * as React from 'react';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import ConnectWallet from './ConnectWallet';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import ConnectButton from './ConnectButton';
 import { Metadata } from 'next';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 
 export const metadata: Metadata = {
   title: 'Pachamama',
@@ -34,7 +34,8 @@ export default function Header() {
           <Typography variant='h1' component='div' sx={{ flexGrow: 1 }}>
             Pachamama
           </Typography>
-          <ConnectButton />
+
+          <ConnectWallet />
         </Toolbar>
       </AppBar>
     </Box>

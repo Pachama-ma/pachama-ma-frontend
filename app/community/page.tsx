@@ -10,7 +10,7 @@ const Community = () => {
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
   return (
-    <Container>
+    <>
       <CommunityDetail />
       <br />
       <Members />
@@ -19,7 +19,7 @@ const Community = () => {
         Add member
       </Button>
       <AddMemberModal handleClose={handleClose} open={open} />
-    </Container>
+    </>
   );
 };
 

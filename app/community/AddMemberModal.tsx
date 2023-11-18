@@ -1,6 +1,13 @@
 'use client';
 
-import { Box, Modal, Stack, TextField, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Modal,
+  Stack,
+  TextField,
+  Typography,
+} from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 
 import React from 'react';
@@ -25,6 +32,9 @@ const AddMemberModal = ({ open, handleClose }: IAddMemberModalProps) => {
             label='Stewardship'
             variant='standard'
           />
+          <Button onClick={handleClose} variant='contained'>
+            Add
+          </Button>
         </Stack>
       </Box>
     </Modal>

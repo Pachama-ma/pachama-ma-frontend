@@ -1,10 +1,8 @@
-import { COMMUNITY_SCHEMA, MEMBERSHIP_SCHEMA } from '../config';
-
 import { AllAttestationsResult } from '../types/gql/all-attestations-result.type';
 import { Attestation } from '../types/gql/attestation.type';
+import { COMMUNITY_SCHEMA } from '../config';
 import { CORE_ATTESTATION_FIELDS } from '../types/fragments/core-attestation-fields.fragment';
-import { Member } from '../types/member';
-import React from 'react';
+import { Community } from '../types/community';
 import { decodedDataJsonFormatter } from '../utils/decodedDataJsonFormatter';
 import { getClient } from '../apollo/getClient';
 import { gql } from '@apollo/client';
@@ -18,17 +16,11 @@ const query = gql`
   }
 `;
 
-export const getAllCommunityMembers = async (
-  communityId: string
-): Promise<Member[]> => {
+export const getAllCommunityAttestations = async (): Promise<Attestation[]> => {
   const where = {
-    AND: [
-      {
-        schemaId: {
-          equals: MEMBERSHIP_SCHEMA,
-        },
-      },
-    ],
+    schemaId: {
+      equals: COMMUNITY_SCHEMA,
+    },
   };
 
   const result = await getClient().query<AllAttestationsResult>({
@@ -39,15 +31,19 @@ export const getAllCommunityMembers = async (
 
   if (result.error) {
     console.error(result.error);
-    throw new Error('Failed to fetch members.');
+    throw new Error('Failed to fetch community.');
   }
 
-  const members: Member[] = [];
+  const attestations: Attestation[] = [];
   for (const attestation of result.data.attestations) {
-    const member = decodedDataJsonFormatter(attestation.decodedDataJson);
-    if (member.communityUid === communityId) {
-      members.push(member);
-    }
+    const decodedDataJson = decodedDataJsonFormatter(
+      attestation.decodedDataJson
+    );
+    attestations.push({
+      ...attestation,
+      decodedDataJson,
+    });
   }
-  return members;
+
+  return attestations;
 };

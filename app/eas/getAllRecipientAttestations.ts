@@ -15,32 +15,32 @@ const query = gql`
   }
 `;
 
-export const getAllRecipientAttestations = React.cache(
-  async (address: string): Promise<Attestation[]> => {
-    const where = {
-      AND: [
-        {
-          recipient: {
-            equals: address,
-          },
-          schemaId: {
-            equals: MEMBERSHIP_SCHEMA,
-          },
+export const getAllRecipientAttestations = async (
+  address: string
+): Promise<Attestation[]> => {
+  const where = {
+    AND: [
+      {
+        recipient: {
+          equals: address,
         },
-      ],
-    };
+        schemaId: {
+          equals: MEMBERSHIP_SCHEMA,
+        },
+      },
+    ],
+  };
 
-    const result = await getClient().query<AllAttestationsResult>({
-      query,
-      fetchPolicy: 'cache-first',
-      variables: { where },
-    });
+  const result = await getClient().query<AllAttestationsResult>({
+    query,
+    fetchPolicy: 'cache-first',
+    variables: { where },
+  });
 
-    if (result.error) {
-      console.error(result.error);
-      throw new Error('Failed to fetch recipient attestations.');
-    }
-
-    return result.data.attestations;
+  if (result.error) {
+    console.error(result.error);
+    throw new Error('Failed to fetch recipient attestations.');
   }
-);
+
+  return result.data.attestations;
+};

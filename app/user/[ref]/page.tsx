@@ -1,7 +1,8 @@
 import { Container, Stack, Typography } from '@mui/material';
+
 import { DEFAULT_REVALIDATE_TIME } from '../../config';
-import { getAllRecipientAttestations } from '../../eas/getAllRecipientAttestations';
 import { decodedDataJsonFormatter } from '@/app/utils/decodedDataJsonFormatter';
+import { getAllRecipientAttestations } from '../../eas/getAllRecipientAttestations';
 
 export default async function UserPage({
   params,
@@ -10,7 +11,7 @@ export default async function UserPage({
 }) {
   // Ref is user address or ens name
   const { ref } = params;
-  console.log('Params', params);
+
   let address: string | null = ref;
   if (!address) {
     return (

@@ -3,14 +3,15 @@ import React from 'react';
 import { Typography } from '@mui/material';
 import { getAllCommunityMembers } from '../../eas/getAllCommunityMembers';
 
-export default async function Members() {
-  const members = await getAllCommunityMembers();
-
-  console.log(members);
+type Props = {
+  communityId: string;
+};
+export default async function Members({ communityId }: Props) {
+  const members = await getAllCommunityMembers(communityId);
 
   return (
     <>
-      <Typography variant='h1' paddingBottom={5}>
+      <Typography variant='h4' paddingBottom={5}>
         Members
       </Typography>
       {members.map((member) => (

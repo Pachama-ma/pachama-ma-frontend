@@ -3,49 +3,48 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#6200ea', // A vibrant purple
-      contrastText: '#ffffff', // White text for contrast
+      main: '#fcfffe', // Neon blue
+      contrastText: '#1C291D', // White text
     },
     secondary: {
-      main: '#03dac6', // A bright teal
-      contrastText: '#000000', // Black text for contrast
+      main: '#f50057', // Neon pink
+      contrastText: '#000', // Black text
     },
     background: {
-      default: '#f4f4f4', // A light grey for page backgrounds
-      paper: '#ffffff', // White for paper elements
+      default: '#121212', // Dark background
+      paper: '#1c1c1c', // Slightly lighter dark shade for paper elements
     },
     error: {
-      main: '#b00020', // Strong red for errors
+      main: '#ff3d00', // Bright orange for errors
     },
     warning: {
-      main: '#ff9800', // Orange for warnings
+      main: '#ffc400', // Amber for warnings
     },
     info: {
-      main: '#2196f3', // Blue for informational messages
+      main: '#00e5ff', // Bright cyan for informational messages
     },
     success: {
-      main: '#4caf50', // Green for success states
+      main: '#00e676', // Vivid green for success states
     },
   },
   typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Playfair Display", "Roboto", sans-serif',
     h1: {
       fontWeight: 500,
       fontSize: '2.5rem',
-      letterSpacing: '-0.01562em',
+      color: '#2B2C30', // Neon blue for headers
     },
     h2: {
       fontWeight: 500,
       fontSize: '2.125rem',
-      letterSpacing: '-0.00833em',
     },
     // ... other typography settings
   },
-  spacing: 8, // Default spacing
+  spacing: 8,
   shape: {
-    borderRadius: 4, // Default border radius
+    borderRadius: 4,
   },
-  // Additional customizations can go here (e.g., components overrides)
+  // Additional customizations for components can go here
 });
 
 export default theme;

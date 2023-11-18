@@ -12,7 +12,7 @@ const projectId = process.env.NEXT_PUBLIC_PROJECT_ID!;
 export default function RootLayout({ children }: any) {
   const metadata = {
     name: 'Web3Modal',
-    description: 'Web3Modal Example',
+    description: 'Pachamama Web3Modal',
     url: 'https://web3modal.com',
     icons: ['https://avatars.githubusercontent.com/u/37784886'],
   };

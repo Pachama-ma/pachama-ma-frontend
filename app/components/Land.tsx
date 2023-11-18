@@ -4,6 +4,7 @@ import { EAS, SchemaEncoder } from '@ethereum-attestation-service/eas-sdk';
 import { sepolia, useChainId, useWalletClient } from 'wagmi';
 import { useSigner } from '../utils/easWagmiUtils';
 import { useEffect } from 'react';
+import { Button } from '@mui/material';
 
 const easContractAddress = '0xC2679fBD37d54388Ce493F1DB75320D236e1815e';
 const schemaUID =
@@ -21,10 +22,10 @@ export default function Land() {
   eas.connect(signer as any);
 
   const encodedData = schemaEncoder.encodeData([
-    { name: 'userId', value: '0', type: 'uint24' },
-    { name: 'name', value: '', type: 'bytes32' },
-    { name: 'level', value: '0', type: 'uint8' },
-    { name: 'stewardShip', value: false, type: 'bool' },
+    { name: 'userId', value: '1', type: 'uint24' },
+    { name: 'name', value: 'Akbar', type: 'bytes32' },
+    { name: 'level', value: '5', type: 'uint8' },
+    { name: 'stewardShip', value: true, type: 'bool' },
   ]);
   async function easTest() {
     if (!signer) return;
@@ -53,9 +54,15 @@ export default function Land() {
       console.error('Please connect to the Ethereum mainnet');
       return;
     }
-    easTest();
+
     // Rest of your code here...
   }, [chainId, signer]);
 
-  return <div>Hello</div>;
+  return (
+    <div>
+      <Button onClick={easTest} color='secondary'>
+        Submit Data
+      </Button>
+    </div>
+  );
 }

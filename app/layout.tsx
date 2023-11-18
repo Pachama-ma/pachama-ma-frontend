@@ -3,8 +3,9 @@
 import { ThemeProvider } from '@emotion/react';
 
 import { createTheme } from '@mui/material/styles';
-import { Web3Modal } from './contexts/Web3Modal';
+
 import { ReactNode } from 'react';
+import { Web3Modal } from './contexts/Web3Modal';
 
 interface IRootLaoyut {
   children: ReactNode;

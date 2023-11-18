@@ -2,9 +2,6 @@
 
 import { ThemeProvider } from '@emotion/react';
 
-import { createTheme } from '@mui/material/styles';
-
-import { ReactNode } from 'react';
 import { Web3Modal } from './contexts/Web3Modal';
 import { mainnet, sepolia } from 'wagmi';
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi';

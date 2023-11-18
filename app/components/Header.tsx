@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function Header() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, marginBottom: '16px' }}>
       <link
         href='https://fonts.googleapis.com/css2?family=Playfair+Display&family=Public+Sans:wght@100&display=swap'
         rel='stylesheet'

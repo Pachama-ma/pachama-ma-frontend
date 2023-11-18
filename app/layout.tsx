@@ -6,6 +6,8 @@ import { Web3Modal } from './contexts/Web3Modal';
 import { mainnet, sepolia } from 'wagmi';
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi';
 import theme from './theme';
+import Header from './components/Header';
+import { Container } from '@mui/material';
 
 const projectId = process.env.NEXT_PUBLIC_PROJECT_ID!;
 
@@ -26,7 +28,12 @@ export default function RootLayout({ children }: any) {
     <html lang='en'>
       <ThemeProvider theme={theme}>
         <body>
-          <Web3Modal>{children}</Web3Modal>
+          <Web3Modal>
+            <>
+              <Header />
+              <Container>{children}</Container>
+            </>
+          </Web3Modal>
         </body>
       </ThemeProvider>
     </html>

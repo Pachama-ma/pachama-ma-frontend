@@ -5,12 +5,16 @@ import React from 'react';
 
 export default async function Community() {
   return (
-    <Container>
+    <>
       <CommunityDetail />
       <br />
       <Members />
       <br />
-    </Container>
+      <Button onClick={() => setOpen(true)} variant='contained' color='primary'>
+        Add member
+      </Button>
+      <AddMemberModal handleClose={handleClose} open={open} />
+    </>
   );
 }
 

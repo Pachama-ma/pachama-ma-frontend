@@ -1,7 +1,6 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Head from './Head';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -12,10 +11,6 @@ import ConnectButton from './ConnectButton';
 export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Head
-        title='Pachamama'
-        description='Temporary stewardship for collective resources'
-      />
       <AppBar position='static'>
         <Toolbar>
           <IconButton

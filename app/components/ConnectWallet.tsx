@@ -6,7 +6,7 @@ import ConnectButton from './ConnectButton';
 import Link from 'next/link';
 import PersonIcon from '@mui/icons-material/Person';
 import { useAccount } from 'wagmi';
-import { Container, Grid, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 
 type LocalState = {
   isConnected: boolean;
@@ -30,12 +30,14 @@ export default function ConnectWallet() {
   return (
     <Stack>
       {localState.isConnected && (
-        <Link href={`/user/${localState.address}`}>
-          <span>
-            <PersonIcon />
-            <Typography variant='body1'>Check your profile</Typography>
-          </span>
-        </Link>
+        <>
+          <Link href={`/user/${localState.address}`}>
+            <Typography variant='body1'>Check your member record</Typography>
+          </Link>
+          <Link href={`/community`}>
+            <Typography variant='body1'>View community details</Typography>
+          </Link>
+        </>
       )}
       <ConnectButton />
     </Stack>

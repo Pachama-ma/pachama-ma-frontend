@@ -1,5 +1,6 @@
 import { Container, Typography } from '@mui/material';
 
+import AddMemberButton from '../components/community/AddMemberButton';
 import Members from '../components/community/Members';
 import React from 'react';
 
@@ -10,10 +11,7 @@ export default async function Community() {
       <br />
       <Members />
       <br />
-      <Button onClick={() => setOpen(true)} variant='contained' color='primary'>
-        Add member
-      </Button>
-      <AddMemberModal handleClose={handleClose} open={open} />
+      <AddMemberButton />
     </>
   );
 }

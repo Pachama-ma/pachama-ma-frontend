@@ -5,6 +5,7 @@ import { Attestation } from '../types/gql/attestation.type';
 import { CORE_ATTESTATION_FIELDS } from '../types/fragments/core-attestation-fields.fragment';
 import { Member } from '../types/member';
 import React from 'react';
+import { decodedDataJsonFormatter } from '../utils/decodedDataJsonFormatter';
 import { getClient } from '../apollo/getClient';
 import { gql } from '@apollo/client';
 
@@ -41,8 +42,7 @@ export const getAllCommunityMembers = async (): Promise<Member[]> => {
 
   const members: Member[] = [];
   for (const attestation of result.data.attestations) {
-    console.log(attestation);
-    const member = JSON.parse(attestation.decodedDataJson);
+    const member = decodedDataJsonFormatter(attestation.decodedDataJson);
     if (member.communityUid === COMMUNITY_SCHEMA) {
       members.push(member);
     }

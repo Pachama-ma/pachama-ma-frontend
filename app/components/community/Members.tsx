@@ -8,17 +8,16 @@ export default async function Members() {
 
   console.log(members);
 
-  return <div>Members</div>;
-  // return (
-  //   <>
-  //     <Typography variant='h1' paddingBottom={5}>
-  //       Members
-  //     </Typography>
-  //     {members.map((member) => (
-  //       <Typography variant='body1' paddingBottom={1} key={member.name}>
-  //         {member.name}
-  //       </Typography>
-  //     ))}
-  //   </>
-  // );
+  return (
+    <>
+      <Typography variant='h1' paddingBottom={5}>
+        Members
+      </Typography>
+      {members.map((member) => (
+        <Typography variant='body1' paddingBottom={1} key={member.name}>
+          {member.name}
+        </Typography>
+      ))}
+    </>
+  );
 }

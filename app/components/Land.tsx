@@ -5,12 +5,16 @@ import { sepolia, useChainId, useWalletClient } from 'wagmi';
 import { useSigner } from '../utils/easWagmiUtils';
 import { useEffect } from 'react';
 import { Button } from '@mui/material';
+import { generateRandomName } from '../utils/generateRandomName';
+import { generateRandNumber } from '../utils/generateRandNumber';
 
 const easContractAddress = '0xC2679fBD37d54388Ce493F1DB75320D236e1815e';
 const schemaUID =
   '0xec7357746601ffd90f053aca9e4670d28b19e7af585bcbbc0ed23ce03f89f1f4';
 
 const eas = new EAS(easContractAddress);
+
+const generateRandomUserId = () => Math.floor(Math.random() * 16777215);
 
 export default function Land() {
   const signer = useSigner();
@@ -22,9 +26,9 @@ export default function Land() {
   eas.connect(signer as any);
 
   const encodedData = schemaEncoder.encodeData([
-    { name: 'userId', value: '1', type: 'uint24' },
-    { name: 'name', value: 'Akbar', type: 'bytes32' },
-    { name: 'level', value: '5', type: 'uint8' },
+    { name: 'userId', value: generateRandomUserId(), type: 'uint24' },
+    { name: 'name', value: generateRandomName(), type: 'bytes32' },
+    { name: 'level', value: generateRandNumber(), type: 'uint8' },
     { name: 'stewardShip', value: true, type: 'bool' },
   ]);
   async function easTest() {

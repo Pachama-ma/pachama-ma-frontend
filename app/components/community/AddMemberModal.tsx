@@ -13,6 +13,7 @@ import { EAS, SchemaEncoder } from '@ethereum-attestation-service/eas-sdk';
 
 import React, { useState } from 'react';
 import { useSigner } from '@/app/utils/easWagmiUtils';
+import { useParams } from 'next/navigation';
 
 interface IAddMemberModalProps {
   open: boolean;
@@ -28,7 +29,8 @@ const AddMemberModal = ({ open, handleClose }: IAddMemberModalProps) => {
   const [name, setName] = useState('');
   const [level, setLevel] = useState('0'); // Default level is '0'
   const [stewardship, setStewardship] = useState('');
-
+  const { ref } = useParams();
+  console.log('Params', ref);
   const schemaEncoder = new SchemaEncoder(
     'string communityUid,string name,uint8 level,string stewardship'
   );
@@ -36,7 +38,7 @@ const AddMemberModal = ({ open, handleClose }: IAddMemberModalProps) => {
   eas.connect(signer as any);
 
   const encodedData = schemaEncoder.encodeData([
-    { name: 'communityUid', value: '', type: 'string' },
+    { name: 'communityUid', value: ref, type: 'string' },
     { name: 'name', value: name, type: 'string' },
     { name: 'level', value: level, type: 'uint8' },
     { name: 'stewardship', value: stewardship, type: 'string' },

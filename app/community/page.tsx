@@ -1,14 +1,9 @@
-'use client';
+import { Container, Typography } from '@mui/material';
 
-import { Button, Container, Typography } from '@mui/material';
-import React, { useState } from 'react';
-import AddMemberModal from './AddMemberModal';
+import Members from '../components/community/Members';
+import React from 'react';
 
-const memberNames = ['Jack', 'Jill', 'John', 'Jane', 'James', 'Jenny'];
-
-const Community = () => {
-  const [open, setOpen] = useState(false);
-  const handleClose = () => setOpen(false);
+export default async function Community() {
   return (
     <>
       <CommunityDetail />
@@ -21,7 +16,7 @@ const Community = () => {
       <AddMemberModal handleClose={handleClose} open={open} />
     </>
   );
-};
+}
 
 const CommunityDetail = () => {
   return (
@@ -41,20 +36,3 @@ const CommunityDetail = () => {
     </>
   );
 };
-
-const Members = () => {
-  return (
-    <>
-      <Typography variant='h1' paddingBottom={5}>
-        Members
-      </Typography>
-      {memberNames.map((name) => (
-        <Typography variant='body1' paddingBottom={1} key={name}>
-          {name}
-        </Typography>
-      ))}
-    </>
-  );
-};
-
-export default Community;

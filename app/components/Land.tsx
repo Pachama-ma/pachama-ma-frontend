@@ -34,7 +34,6 @@ export default function Land() {
   async function easTest() {
     if (!signer) return;
     try {
-      console.log('Signerrrrrrrrr', signer);
       const tx = await eas.attest({
         schema: schemaUID,
         data: {
@@ -46,7 +45,6 @@ export default function Land() {
       console.log('tx', tx);
       const newAttestationUID = await tx.wait();
       console.log('New attestation UID:', newAttestationUID);
-
       console.log('signer', signer);
     } catch (error) {
       console.log('Errrrrro,', error);

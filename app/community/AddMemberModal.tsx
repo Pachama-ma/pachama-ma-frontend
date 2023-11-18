@@ -1,6 +1,8 @@
 'use client';
 
-import { Box, Modal, TextField, Typography } from '@mui/material';
+import { Box, Modal, Stack, TextField, Typography } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
+
 import React from 'react';
 
 interface IAddMemberModalProps {
@@ -15,7 +17,15 @@ const AddMemberModal = ({ open, handleClose }: IAddMemberModalProps) => {
         <Typography id='modal-modal-title' variant='h6' component='h2'>
           Add member
         </Typography>
-        <TextField id='outlined-basic' label='Name' variant='standard' />
+        <Stack spacing={2}>
+          <TextField id='outlined-basic' label='Name' variant='standard' />
+          <TextField id='outlined-basic' label='Level' variant='standard' />
+          <TextField
+            id='outlined-basic'
+            label='Stewardship'
+            variant='standard'
+          />
+        </Stack>
       </Box>
     </Modal>
   );

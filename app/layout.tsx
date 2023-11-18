@@ -14,8 +14,8 @@ interface IRootLaoyut {
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#08f', // Neon blue
-      contrastText: '#fff', // White text
+      main: '#fcfffe', // Neon blue
+      contrastText: '#1C291D', // White text
     },
     secondary: {
       main: '#f50057', // Neon pink
@@ -39,16 +39,15 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Orbitron", "Roboto", sans-serif',
+    fontFamily: '"Playfair Display", "Roboto", sans-serif',
     h1: {
       fontWeight: 500,
       fontSize: '2.5rem',
-      color: '#08f', // Neon blue for headers
+      color: '#2B2C30', // Neon blue for headers
     },
     h2: {
       fontWeight: 500,
       fontSize: '2.125rem',
-      color: '#f50057', // Neon pink for subheaders
     },
     // ... other typography settings
   },

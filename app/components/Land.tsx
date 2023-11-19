@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { Button } from '@mui/material';
 import { generateRandomName } from '../utils/generateRandomName';
 import { generateRandNumber } from '../utils/generateRandNumber';
+import { arbitrum } from '@wagmi/core/chains';
 
 const easContractAddress = '0xC2679fBD37d54388Ce493F1DB75320D236e1815e';
 const schemaUID =

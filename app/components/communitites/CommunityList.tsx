@@ -8,7 +8,7 @@ export default async function CommunityList() {
   return (
     <>
       <Typography variant='h4' paddingBottom={5}>
-        Communities
+        Registered Communities
       </Typography>
       {attestations.map((attestation) => (
         <Typography

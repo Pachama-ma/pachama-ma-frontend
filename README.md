@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+**Pachamama** is a easy to use DApp that enables communities to collectively manage land:
 
-## Getting Started
+- _notarize_ land deeds by storing them on IPFS and save hashes on-chain
+- _assign_ temporary stewardship to community members
+- _attest_ these stewardships in connection with the land deeds
+- _prove_ the validity of claims against the relationship between land and steward
 
-First, run the development server:
+## User flow
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A community ...
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. buys or inherits land
+2. creates a multisig
+3. digitizes the deed - i.e. by scanning a document
+4. use Pachamama to attest the document to a community (saving the IPFS hash)
+5. use Pachamama to attest temporaty stewardship(s) over the land to community members
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What problems does it solve?
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- it might be hard to preserve documents like a land deed for a long time
+- the history of stewarships is being tracked
+- the history of ownership is being tracked (if a community giver ownership to another community)
+- collective governance is being formalized
+- claims can be made against the attestations
+- the pattern can be adopted by any community that wants to manage collective ownership
+- the system is generalized enough to notarize other things
 
-## Learn More
+## MVP Stack
 
-To learn more about Next.js, take a look at the following resources:
+- Arbitrum
+- SAFE Core AA SDK
+- Ethereum Attestation service
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### backend/blockchain
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Documents are stored on IPFS or FILECOIN - we can save the hash via an attestation or as NFT
+- A smart contract should handle the attestation of temporary ownership
 
-## Deploy on Vercel
+### frontend (for community member)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- SAFE Core for account abstraction (create wallet and log-in)
+- See own status (Read from EAS)
+- See information corresponding to level (Read from EAS)
+- See information about community (Read from EAS)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### frontend (for community)
+
+- Store document (write to IPFS snd store hash in NFT, make attestation with metadata)
+- Add/remove addresses to/from community pool
+- Attest temporary ownership to community members
+- Attest information about the communities' view on the member (level, skills, deeds, ...)

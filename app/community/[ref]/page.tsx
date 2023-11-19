@@ -19,7 +19,10 @@ export default async function Community({
         {community.name}
       </Typography>
       <Typography variant='body1' paddingBottom={1}>
-        <img src={`https://giveth.mypinata.cloud/ipfs/${community.landDeed}`} />
+        <img
+          src={`https://giveth.mypinata.cloud/ipfs/${community.landDeed}`}
+          style={{ width: '400px' }}
+        />
       </Typography>
       <Typography variant='body1' paddingBottom={1}>
         Parcels: {community.parcels}

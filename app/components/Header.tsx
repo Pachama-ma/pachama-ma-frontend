@@ -8,6 +8,7 @@ import { Metadata } from 'next';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Link from 'next/link';
+import ConnectWallet from './ConnectWallet';
 
 export const metadata: Metadata = {
   title: 'Pachamama',
@@ -41,6 +42,7 @@ export default function Header() {
           <Typography variant='h1' component='div' sx={{ flexGrow: 1 }}>
             Pachamama
           </Typography>
+          <ConnectWallet />
         </Toolbar>
       </AppBar>
     </Box>

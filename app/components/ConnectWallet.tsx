@@ -29,17 +29,14 @@ export default function ConnectWallet() {
 
   return (
     <Stack>
+      <ConnectButton />
       {localState.isConnected && (
         <>
           <Link href={`/user/${localState.address}`}>
             <Typography variant='body1'>Check your member record</Typography>
           </Link>
-          <Link href={`/community`}>
-            <Typography variant='body1'>View community details</Typography>
-          </Link>
         </>
       )}
-      <ConnectButton />
     </Stack>
   );
 }

@@ -25,7 +25,6 @@ export const getAllCommunityAttestations = async (): Promise<Attestation[]> => {
 
   const result = await getClient().query<AllAttestationsResult>({
     query,
-    fetchPolicy: 'cache-first',
     variables: { where },
   });
 

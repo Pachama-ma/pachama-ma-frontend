@@ -13,17 +13,13 @@ export default async function Community({
 
   const community = await getCommunity(ref);
 
-  console.log('Community', community);
   return (
     <>
       <Typography variant='h3' paddingBottom={5}>
-        Community details
+        {community.name}
       </Typography>
       <Typography variant='body1' paddingBottom={1}>
-        Name: {community.name}
-      </Typography>
-      <Typography variant='body1' paddingBottom={1}>
-        Land Deed: {community.landDeed}
+        <img src={`https://giveth.mypinata.cloud/ipfs/${community.landDeed}`} />
       </Typography>
       <Typography variant='body1' paddingBottom={1}>
         Parcels: {community.parcels}

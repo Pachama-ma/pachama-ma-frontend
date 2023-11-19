@@ -33,7 +33,6 @@ export const getAllRecipientAttestations = async (
 
   const result = await getClient().query<AllAttestationsResult>({
     query,
-    fetchPolicy: 'cache-first',
     variables: { where },
   });
 

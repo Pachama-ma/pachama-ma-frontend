@@ -1,6 +1,5 @@
 import { Container, Stack, Typography } from '@mui/material';
 
-import { DEFAULT_REVALIDATE_TIME } from '../../config';
 import { decodedDataJsonFormatter } from '@/app/utils/decodedDataJsonFormatter';
 import { getAllRecipientAttestations } from '../../eas/getAllRecipientAttestations';
 
@@ -25,7 +24,6 @@ export default async function UserPage({
 
   const attestations = await getAllRecipientAttestations(address);
   const extracted = decodedDataJsonFormatter(attestations[0].decodedDataJson);
-  console.log('Extracted', extracted);
   return (
     <>
       <Stack>
@@ -45,5 +43,3 @@ export default async function UserPage({
     </>
   );
 }
-
-export const revalidate = DEFAULT_REVALIDATE_TIME;

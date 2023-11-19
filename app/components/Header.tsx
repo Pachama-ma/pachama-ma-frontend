@@ -7,6 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Metadata } from 'next';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Pachamama',
@@ -28,7 +29,14 @@ export default function Header() {
             aria-label='menu'
             sx={{ mr: 2 }}
           >
-            <Image src='/images/logo.png' alt='Logo' width={100} height={100} />
+            <Link href='/'>
+              <Image
+                src='/images/logo.png'
+                alt='Logo'
+                width={100}
+                height={100}
+              />
+            </Link>
           </IconButton>
           <Typography variant='h1' component='div' sx={{ flexGrow: 1 }}>
             Pachamama

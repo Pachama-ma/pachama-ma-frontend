@@ -29,6 +29,8 @@ const AddMemberModal = ({ open, handleClose }: IAddMemberModalProps) => {
   const [name, setName] = useState('');
   const [level, setLevel] = useState('0'); // Default level is '0'
   const [stewardship, setStewardship] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
   const { ref } = useParams();
   console.log('Params', ref);
   const schemaEncoder = new SchemaEncoder(
@@ -47,6 +49,7 @@ const AddMemberModal = ({ open, handleClose }: IAddMemberModalProps) => {
   async function attestMember() {
     if (!signer) return;
     try {
+      setIsLoading(true);
       const tx = await eas.attest({
         schema: schemaUID,
         data: {
@@ -96,13 +99,16 @@ const AddMemberModal = ({ open, handleClose }: IAddMemberModalProps) => {
           />
           <Button
             onClick={() => {
-              attestMember().then(() => {
-                handleClose();
-              });
+              attestMember()
+                .then(() => {
+                  handleClose();
+                })
+                .finally(() => setIsLoading(false));
             }}
             variant='contained'
+            disabled={isLoading}
           >
-            Add
+            {!isLoading ? 'Add' : 'Please Wait ...'}
           </Button>
         </Stack>
       </Box>

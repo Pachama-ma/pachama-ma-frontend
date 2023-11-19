@@ -49,3 +49,8 @@ A community ...
 - Add/remove addresses to/from community pool
 - Attest temporary ownership to community members
 - Attest information about the communities' view on the member (level, skills, deeds, ...)
+
+### Chains
+
+- Sepolia
+- Arbitrum

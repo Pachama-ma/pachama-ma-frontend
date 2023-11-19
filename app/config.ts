@@ -1,4 +1,4 @@
-export const EAS_API_URL = 'https://sepolia.easscan.org/graphql';
+export const EAS_API_URL = 'https://arbitrum.easscan.org/graphql';
 
 export const COMMUNITY_SCHEMA =
   '0x79fd48819aa029d3fa5b4a25ab4228754c6657929d63d384102dfbafb7d2707e';

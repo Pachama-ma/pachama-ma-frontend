@@ -2,7 +2,7 @@
 
 import { ThemeProvider } from '@emotion/react';
 import { Web3Modal } from './contexts/Web3Modal';
-import { mainnet, sepolia } from 'wagmi';
+import { mainnet, arbitrum } from '@wagmi/core/chains';
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi';
 import theme from './theme';
 import Header from './components/Header';
@@ -12,12 +12,12 @@ const projectId = process.env.NEXT_PUBLIC_PROJECT_ID!;
 
 export default function RootLayout({ children }: any) {
   const metadata = {
-    name: 'Web3Modal',
+    name: 'Pachamama',
     description: 'Pachamama Web3Modal',
-    url: 'https://web3modal.com',
-    icons: ['https://avatars.githubusercontent.com/u/37784886'],
+    url: 'https://pachama-ma.vercel.app',
+    icons: ['https://pachama-ma.vercel.app/images/logo.png'],
   };
-  const chains = [mainnet, sepolia];
+  const chains = [mainnet, arbitrum];
 
   const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata });
 

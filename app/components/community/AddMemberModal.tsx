@@ -20,7 +20,7 @@ interface IAddMemberModalProps {
   handleClose: () => void;
 }
 
-const easContractAddress = '0xC2679fBD37d54388Ce493F1DB75320D236e1815e';
+const easContractAddress = '0xbD75f629A22Dc1ceD33dDA0b68c546A1c035c458';
 const schemaUID =
   '0x21602b6e2dcffa7acfe555f9e4cc7ecbb77a60fc60fb57b42a68a9a59b75857c';
 const eas = new EAS(easContractAddress);

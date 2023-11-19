@@ -51,9 +51,9 @@ export default function Land() {
     }
   }
   useEffect(() => {
-    if (chainId !== sepolia.id) {
+    if (chainId !== arbitrum.id) {
       // Check if not on Ethereum mainnet
-      console.error('Please connect to the Ethereum mainnet');
+      console.error('Please connect to the Arbitrum network');
       return;
     }
 
